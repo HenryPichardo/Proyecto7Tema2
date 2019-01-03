@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmpleadoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'EmpleadoDB.dbo.Departamento' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="Contabilidad" />
+      <PropertyRef Name="Informatica" />
+      <PropertyRef Name="Ventas" />
+      <PropertyRef Name="caja" />
+      <PropertyRef Name="Mantenimiento" />
+    </Key>
+    <Property Name="Contabilidad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Informatica" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ventas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="caja" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mantenimiento" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'EmpleadoDB.dbo.Empleado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Cedula" Type="varchar" MaxLength="50" />
+    <Property Name="Departamento" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="EmpleadoDBModelStoreContainer">
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Departamento].[Contabilidad] AS [Contabilidad], 
+    [Departamento].[Informatica] AS [Informatica], 
+    [Departamento].[Ventas] AS [Ventas], 
+    [Departamento].[caja] AS [caja], 
+    [Departamento].[Mantenimiento] AS [Mantenimiento]
+    FROM [dbo].[Departamento] AS [Departamento]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Empleado].[Codigo] AS [Codigo], 
+    [Empleado].[Nombre] AS [Nombre], 
+    [Empleado].[Cedula] AS [Cedula], 
+    [Empleado].[Departamento] AS [Departamento]
+    FROM [dbo].[Empleado] AS [Empleado]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

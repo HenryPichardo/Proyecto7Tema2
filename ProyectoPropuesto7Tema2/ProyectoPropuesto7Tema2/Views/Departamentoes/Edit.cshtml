@@ -1,0 +1,42 @@
+﻿@model MVC_CRUD.Models.Departamento
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Departamento</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Contabilidad)
+
+        @Html.HiddenFor(model => model.Informatica)
+
+        @Html.HiddenFor(model => model.Ventas)
+
+        @Html.HiddenFor(model => model.caja)
+
+        @Html.HiddenFor(model => model.Mantenimiento)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

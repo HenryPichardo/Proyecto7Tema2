@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConsecionBarrancaModelStoreContainer" CdmEntityContainer="ConsecionBarrancaEntities">
+    <EntitySetMapping Name="TBL_NOMINA">
+      <EntityTypeMapping TypeName="ConsecionBarrancaModel.TBL_NOMINA">
+        <MappingFragment StoreEntitySet="TBL_NOMINA">
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+          <ScalarProperty Name="SUELDO" ColumnName="SUELDO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
